@@ -36,7 +36,7 @@ function handleShoot(eve){
     const arrowRef = document.getElementById("arrow");
     const idRef = setInterval(()=>{
         arrowRef.style.left = `${++count}px`;
-        if(count === 474){
+        if(count === 475){
             clearInterval(idRef);
             count=0;
             sendMessage();
