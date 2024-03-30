@@ -1,0 +1,22 @@
+<script>
+    // throttling example 
+    function resizer(){
+        console.log("resize called");
+    }
+
+    var _flag = true;
+    var timer;
+    function throttlingTest(){
+        if(_flag)
+            resizer();
+        _flag=false;
+
+        clearTimeout(timer);
+        timer = setTimeout(()=>{
+            resizer();
+        },3000);
+    }
+
+    window.addEventListener('resize',()=>{throttlingTest()});
+
+</script>
