@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event bubbling and capturing</title>
+    <style>
+        div[id]{
+            margin: 3px;
+            padding: 20px;
+            border:2px solid red;
+        }
+    </style>
+    <script defer>
+
+        // event capturing logic
+        var divRef = document.getElementsByClassName("evCap");
+        divRef.addEventListener('click',function(event){
+            alert(event.target.id);
+        },true)
+    </script>
+</head>
+<body>
+    <div>
+        <div onclick="alert('div1')" id="1">Event bubbling : flow is innermost to outer 
+        <div onclick="alert('div2')" id="2">div2
+            <div onclick="alert('div3')" id="3">div3</div>
+        </div>
+        </div>
+
+    </div>
+        
+    <div>
+        <div  class="evCap" id="1">Event capturing :this can done by using addEventListener:: flow is outermost to inner one it take 3 argumet to function 3rd one is true
+            <div class="evCap" id="2">div2
+                <div class="evCap" id="3">div3</div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div onclick="f1(event)" >
+        <h2></h2>
+        <button id="btn1">button 1</button>
+        <button id="btn2">button 2</button>
+        <button id="btn3">button 3</button>
+    </div>
+</body>
+</html>
