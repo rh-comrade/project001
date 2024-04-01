@@ -3,7 +3,7 @@
 
 const arr = [2, 3, 4, 5, 6];
 
-// sort function
+// bubble sort function
 function sortArray(arr){
     const n = arr.length-1;
     for(let i=0;i<n;i++){
