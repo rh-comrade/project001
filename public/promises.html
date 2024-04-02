@@ -1,0 +1,26 @@
+<script async>
+
+    // promises in js
+
+    // create promise
+    const myPromise =(n)=>{
+        return  new Promise((resolve,reject)=>{
+        if(n%2===0)
+            resolve("even")
+        else
+            reject("odd number error")
+    })
+        }
+    
+
+    // use case of promise with parameter
+    myPromise(10)
+    .then(responce=>{
+        alert(responce);
+    })
+    .catch(responce=>{
+        alert("promise rejected: "+responce);
+    })
+
+</script>
+<h2>Promises in js</h2>
