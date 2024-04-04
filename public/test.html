@@ -1,0 +1,14 @@
+<script>
+    
+const str="Write a function to find the longest word in a sentence using reduce method."
+const findLongestWord=(sentence)=>{
+    const arr = sentence.split(" ")
+
+    obj = arr.reduce((v,v1)=>{
+        v[v1] = v1;
+    },{})
+
+    console.log(obj)
+}
+findLongestWord(str)
+</script>
