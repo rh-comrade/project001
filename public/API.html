@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+    
+        axios.get("https://api.escuelajs.co/api/v1/products")
+            .then((responce) => {
+                responce.data.map(obj=>{
+                    document.write(`<li>${obj.title}</li>`)
+                    // obj.images.map(src=>{
+                    //     document.write(`
+                    //     <img src= ${src} height=200 width=200>
+                    //     `)
+                        
+                    // })
+                })
+            })
+            .catch((err) => {
+                console.log("error: " + err);
+            })
+    </script>
+</head>
+<body>
+    
+    
+</body>
+</html>
