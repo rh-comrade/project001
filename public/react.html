@@ -1,0 +1,30 @@
+<script src="./react.development.js"></script>
+<script src="./babel.js"></script>
+<script src="./react-dom.development.js"></script>
+
+<div id="root"></div>
+
+<script type="text/babel">
+    function App(){
+    const [userName,setUserName] = React.useState("Jhon");
+
+    function handleChangeUserName(event){
+        setUserName(event.target.value)
+    }
+
+    return (
+
+        <div className="container-fluid">
+            <h3>Two way binding</h3>
+            <p>Getting info from source and presenting in UI and identifying change change in UI and update to source.</p>
+            <input onChange={handleChangeUserName} type="text" value={userName} className="form-control w-50" />
+            <h3>Hello, {userName}!</h3>
+        </div>
+    )
+}
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App/>)
+
+ 
+</script>
