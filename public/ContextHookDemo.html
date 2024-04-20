@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User context</title>
+    <script src="./react.development.js"></script>
+    <script src="./babel.js"></script>
+    <script src="./react-dom.development.js"></script>
+    <script type="text/babel">
+        // app is parent comonent
+
+        const ctx = React.createContext(null);
+
+         const App = ()=>{
+            let name = "Rhutik"
+            return(
+                <div>
+                    <ctx.Provider value={{'name':name}} >
+                        <h1>Hello world</h1>
+                        <A></A>
+                    </ctx.Provider>
+                </div>
+            )
+        }
+        const A = ()=>{
+            return(
+                <div>
+                    <h2>A component</h2>
+                    <B/>
+                </div>
+            )
+        }
+        const B = ()=>{
+            return(
+                <div>
+                    <h2>B component</h2>
+                    <C/>
+                </div>
+            )
+        }
+        const C = ()=>{
+            const data = React.useContext(ctx);
+            return(
+                <div>
+                    <h2>C component</h2>
+                    <h3>I'm accesing data from my parent APP component</h3>
+                    <p>{data.name}</p>
+                </div>
+            )
+        }
+
+        
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App/>)
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
