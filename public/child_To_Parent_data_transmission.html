@@ -1,0 +1,45 @@
+<script src='react.development.js'></script>
+<script src='./react-dom.development.js'></script>
+<script src="./babel.js"></script>
+
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+    const B = (props) => {
+        const nameRef = React.useRef()
+        const fnSendData = () => {
+            let value = nameRef.current.value;
+            props.cb(value);
+        }
+
+        return <div>
+            <h1>Am B component</h1>
+            <p>Name:<input ref={nameRef} /></p>
+            <p><input type='button' value="send data" onClick={fnSendData} /></p>
+        </div>
+
+    }
+
+    const A = () => {
+        const [myData, setMyData] = React.useState('nit')
+        const fnGetData = (data) => {
+            setMyData(data)
+        }
+
+        return <div>
+            <h1>Am A component: {myData} </h1>
+            <B cb={fnGetData} />
+        </div>
+
+    }
+
+    const App = () => {
+        return <A />
+    }
+
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+                  root.render(<App />)
+</script>
