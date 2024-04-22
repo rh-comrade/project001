@@ -8,38 +8,42 @@
 <script type="text/babel">
 
     const B = (props) => {
-        const nameRef = React.useRef()
-        const fnSendData = () => {
-            let value = nameRef.current.value;
-            props.cb(value);
+        var myref = React.useRef();
+        var myref1 = React.useRef();
+        const sendData = (data) => {
+                props.name(myref.current.value);
+                props.id(myref1.current.value);
+            
         }
-
-        return <div>
-            <h1>Am B component</h1>
-            <p>Name:<input ref={nameRef} /></p>
-            <p><input type='button' value="send data" onClick={fnSendData} /></p>
-        </div>
-
+        return (
+            <div>
+                <h2>From child component</h2>
+                <input type="text" id="name"  ref = {myref}/>
+                <input type="text" id="age"  ref = {myref1}/>
+                <button onClick={sendData} >send data to parent</button>
+            </div>
+        )
     }
 
     const A = () => {
-        const [myData, setMyData] = React.useState('null')
-        const fnGetData = (data) => {
-            setMyData(data)
+        const [mydata,setMydata] = React.useState();
+        const getData = (data) => {
+            console.log(data)
         }
-
-        return <div>
-            <h1>Am A component: {myData} </h1>
-            <B cb={fnGetData} />
-        </div>
-
+        const getDataId = (data) => {
+            console.log(data)
+        }
+        return (
+                <div>
+                    <B name={getData} id ={getDataId}/>
+                </div>
+            )
     }
-
     const App = () => {
         return <A />
     }
 
 
     const root = ReactDOM.createRoot(document.getElementById('root'));
-                  root.render(<App />)
+    root.render(<App />)
 </script>
