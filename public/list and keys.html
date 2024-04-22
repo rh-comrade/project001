@@ -1,0 +1,58 @@
+<script src="./react.development (1).js"></script>
+<script src="./babel (1).js"></script>
+<script src="./react-dom.development (1).js"></script>
+
+<div id="root"></div>
+
+<script type="text/babel">
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    const App = () => {
+        const data = [
+            {
+                "name": "Samsung s-24",
+                "color": "smoke white",
+                "price": 139999.00
+            },
+            {
+                "name": "Moto",
+                "color": "black",
+                "price": 12000.00
+            },
+            {
+                "name": "Pixel",
+                "color": "off white",
+                "price": 85000.00
+            },
+        ]
+        return (
+            <div>
+                <h3>Select list</h3>
+                <select>
+                    {
+                        data.map(({name},ind)=>(
+                        <option key={ind} value={name}>{name}</option>
+                        ))
+                    }
+                </select>
+                <h3>Prepare something</h3>
+                <ol>
+                    {
+                    data.map(({name,color,price},ind)=>(
+                        <li>{name}
+                        <ul>
+                            <li>{color}</li>
+                            <li>{price}</li>
+                        </ul>
+                        </li>
+                    ))
+                }
+                </ol>
+            </div>
+        )
+    }
+
+    root.render(
+        <App />
+    )
+</script>
