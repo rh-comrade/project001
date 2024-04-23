@@ -1,0 +1,31 @@
+<script src="./react.development.js"></script>
+<script src="./react-dom.development.js"></script>
+<script src="./babel.js"></script>
+<div id="root"></div>
+
+<script type="text/babel">
+
+    const List = ({ data }) => {
+        return <ol>
+            {
+                data.map((val,ind) => {
+                    return <li key={`li_${ind}`}>{val}</li>
+                })
+            }
+        </ol>
+    }
+
+    const App = () => {
+        return (
+            <div>
+                <h2>Reusable student list</h2>
+                <List data={["Rhutik","Sachin","Aniket","Vikrant","Anup"]} />
+                <h2>Emerging brands</h2>
+                <List data={["Samsung","Vivo","Oppo","Realme","Redmi","Pixel"]} />
+            </div>
+        )
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"))
+    root.render(<App />)
+</script>
