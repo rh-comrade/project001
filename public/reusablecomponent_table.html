@@ -1,0 +1,56 @@
+<script src="./react.development.js"></script>
+<script src="./react-dom.development.js"></script>
+<script src="./babel.js"></script>
+<div id="root"></div>
+
+<script type="text/babel">
+
+    const Table = ({ heading, data,keys }) => {
+        return <table border="2">
+            <thead>
+                <tr>
+                    {
+                        heading.map((head, ind)=> {
+                            return <th key={`th_${ind}`}> {head} </th>
+                        })
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    data.map((Obj,ind)=>{
+                        return <tr key={`tr_${ind}`}>
+                            {
+                                keys.map((key,index)=>{
+                                    return <td key={`key_${key}`}>{Obj[key]}</td>
+                                })
+                            }
+                            </tr>
+                    })
+                }
+            </tbody>
+        </table>
+    }
+
+    const App = () => {
+        return (
+            <div>
+                <h2>Student Table</h2>
+                <Table 
+                heading={["Name", "Email", "Location"]} 
+                data = {[{"name":"Sachin","email":"sachin123@gmail.com","location":"Katraj"},{"name":"Aniket","email":"aniket@gmail.com","location":"Pune"},{"name":"Anup","email":"anup1@gmail.com","location":"Hydrabad"}]}
+                keys = {["name", "email", "location"]}
+                />
+                <h2>Student Table</h2>
+                <Table 
+                heading={["Roll no", "Name"]} 
+                data = {[{"rn":1,"name":"s1"},{"rn":2,"name":"s2"}]}
+                keys = {["rn","name"]}
+                />
+            </div>
+        )
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"))
+    root.render(<App />)
+</script>
