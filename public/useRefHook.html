@@ -1,0 +1,28 @@
+<script src="./react.development.js"></script>
+<script src="./react-dom.development.js"></script>
+<script src="./babel.js"></script>
+<div id="root"></div>
+
+<script type="text/babel">
+
+
+    const App = () => {
+        const stdRef = React.useRef();
+        const [name,setName] = React.useState("John");
+
+        const handleStdRef = ()=>{
+        setName(stdRef.current.value);
+    }
+        return (
+            <div>
+                <h2>Please provide student name</h2>
+                <input ref={stdRef} type="text" />
+                <button onClick={handleStdRef}  >submit</button>
+                <h3>Hello {name} !</h3>
+            </div>
+        );
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+</script>
