@@ -1,0 +1,38 @@
+<script src="./react.development.js"></script>
+<script src="./babel.js"></script>
+<script src="./react-dom.development.js"></script>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+    var Child = ()=>{
+        console.log("child component called")
+        return(
+            <div>
+                <h3>Child component</h3>
+            </div>
+        )
+    }
+    Child = React.memo(Child);
+    const App=()=>{
+        const [cnt,setCnt] = React.useState(0);
+        console.log("Parent component called")
+        const handleIncrement = ()=>{
+            setCnt(cnt+1);
+        }
+        
+        return(
+            <div>
+                <Child/>
+                <h2>count {cnt}</h2>
+                <button onClick={handleIncrement}>increment</button>
+            </div>
+        )
+}
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App/>)
+
+ 
+</script>

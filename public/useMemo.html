@@ -1,0 +1,44 @@
+<script src="./react.development.js"></script>
+<script src="./babel.js"></script>
+<script src="./react-dom.development.js"></script>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+   
+    const App=()=>{
+        const [cnt,setCnt] = React.useState(1);
+        const [name,setName] = React.useState("Sachin");
+
+        const handleIncrement = ()=>{
+            setCnt(cnt+1);
+        }
+        
+        const handleNameChange = ()=>{
+            setName(name==="Sachin"? "Dhoni": "Sachin")
+        }
+
+        var handleCountStatus = ()=>{
+            console.log("5k lines code");
+            return cnt%2===0?"true":"false"
+        }
+
+        var value = React.useMemo(handleCountStatus,[cnt])
+
+        return(
+            <div>
+                <h2>count {cnt} is Even: {value}</h2>
+                <button onClick={handleIncrement}>increment</button>
+
+                <h2>{name}</h2>
+                <button onClick={handleNameChange}>chnage name</button>
+            </div>
+        )
+}
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App/>)
+
+ 
+</script>
