@@ -1,0 +1,41 @@
+<script src="./react.development.js"></script>
+<script src="./babel.js"></script>
+<script src="./react-dom.development.js"></script>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+    var Button = ({cnt,handleCount})=>{
+        return <button onClick={handleCount}>you clicked me {cnt} time's</button>
+    }
+    var Text = ({cnt,handleCount})=>{
+        return <p onClick={handleCount} style={{border:"2px solid red"}}>hey your count is {cnt}</p>
+    }
+    
+    var myTransformer = (Component)=>{
+        var transform =   ()=>{
+            const [cnt,setCnt] = React.useState(0);
+            const handleCount = ()=>{
+            setCnt(cnt+1)
+        }
+        return <Component cnt={cnt} handleCount={handleCount}/>
+        }
+        return transform
+    }
+
+    Button = myTransformer(Button);
+    Text = myTransformer(Text);
+    const App = () => {
+
+        return (
+            <div>
+                hello
+                <Button />
+                <Text/>
+            </div>
+        )
+    }
+    const root = ReactDOM.createRoot(document.getElementById("root"))
+    root.render(<App />)
+</script>
