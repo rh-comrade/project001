@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex in CSS</title>
+    <style>
+        .my-container{
+            display: flex;
+            /* flex-wrap: nowrap; */
+            /* flex-direction: column; */
+            flex-flow: row nowrap; /*flex direction and flex-wrap */
+            justify-content: center; /*center content horizontaly*/
+            align-items: center; /*center content horizontaly*/
+            width: 400px;
+            height: 200px;
+            border: 2px solid;
+        }
+        .my-container > div{
+            /* width: 100%; */
+            /* flex-grow: 1; */
+            flex-shrink: 1;
+            width: 200px;
+        }
+        .my-container > div:nth-child(odd){
+            background-color: red;
+        }
+        .my-container > div:nth-child(even){
+            background-color: yellow;
+            /* flex-grow: 3; */
+            flex-shrink: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="my-container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+</html>
