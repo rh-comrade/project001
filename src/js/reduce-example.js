@@ -15,3 +15,5 @@ const expenses = [
   }
   return initalValue;
   },{})
+  console.log(totalCost);
+  

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change background Image using JS</title>
+    <script>
+        const handleImageChange =()=>{
+            console.log('you clicked btn');
+            
+            const divRef = document.querySelector('.myDiv');
+            divRef.style.backgroundImage = 'https://s3-alpha-sig.figma.com/img/032c/93ac/432196ce07afbd2921957d46d3cae711?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=de8yB~-0XHoZ4Z9ZKpJ6OxSE8h8V8l-Fhcmuc0Zewk-pOO~xWhNodk7jkQl89ukvKjnZ7dYeKtCQ73aSSFUpXCFRacVULzYzDVEJpLgwQhItZ0aF024lmdHfYgD715x1LbVEjcB1wEh5MXfBYYFZF7JY~aRyKn8f6j238fciOiUfaP4J1YXurah0rKqdZrMx7Mm4t6tkXC1wz~IXsYLzZygtDPemwtMdL18lI76etwmqPtV4TldChA7elPwYfqrznCVVD7mlxG0945XS~AN4PrG35I3Oba69Vokj6A3bQBFY-zCAUiehhwlm9ZKtr1sVNICje9rfahVtme2YpcquNA__'
+
+        }
+    </script>
+    <style>
+        .myDiv{
+            height: 500px;
+            width: 100%;
+            background-image: url('https://s3-alpha-sig.figma.com/img/8375/443d/4662c63d50529b9bd228f55d30926c38?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=q4MdzPnJxKTeHXJRs4F7-x5bNk865MIAKyDBO36B8EOtzRAbyZo-bxgBqtRCxKgUIJ6TKySsKzF5LeW-UUiKa6joMzP6FzpzTq-4IpU-x6Hp~VqSqvtMGRjCLMRhRM8hk37-ojdmB6OSPNrmCTU6PeXBaJBwKwQVdMlNWbWgc9TeihsHDnrbp4-oGBQ5JnlApH6~8ZtXW44ijy42ZR8RdyQD6gr-RhcDGgYcRvoj~9J4iGjFT2UwffveGYEKYasavHH1gH5jj0EPnwxSnZ6NuXh2uTHMcuvs62Vbsmbh9StGaeIk2EgvOx3EzvLnxljwQHQOvmz1z1wa75iQ0i7wIw__') ;
+            background-repeat: no-repeat;
+            background-position: 30% 10%;
+        }
+    </style>
+</head>
+<body>
+    <div class="myDiv">
+    </div>
+    <button onclick="handleImageChange()" type="button">change image</button>
+</body>
+</html>

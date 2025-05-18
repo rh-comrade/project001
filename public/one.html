@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function handleChange(e){
+            console.log(`you changed ${e.target.name}: ${e.target.value}`);
+        }
+        function handleFormSubmition(e){
+            e.preventDefault();
+            alert('form submition request received')
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="handleFormSubmition(event)">
+        <input name="name" placeholder="name" type="text" onchange="handleChange(event)">
+    <input name="email"  placeholder="email"type="email" onchange="handleChange(event)">
+    <button type="submit">submit</button>
+    </form>
+</body>
+</html>

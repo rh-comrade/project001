@@ -6,27 +6,39 @@
 
 <script type="text/babel">
 
-   
-    const App=()=>{
-        const [cnt,setCnt] = React.useState(1);
-        const [name,setName] = React.useState("Sachin");
 
-        const handleIncrement = ()=>{
-            setCnt(cnt+1);
-        }
-        
-        const handleNameChange = ()=>{
-            setName(name==="Sachin"? "Dhoni": "Sachin")
+    const App = () => {
+        const [cnt, setCnt] = React.useState(1);
+        const [name, setName] = React.useState("Sachin");
+
+        // this leads batching(update all at onces)
+        // const handleIncrement = ()=>{
+        //     setCnt(cnt+1);
+        //     setCnt(cnt+1);
+        //     setCnt(cnt+1);
+        // }
+
+        // correct way to updating states
+        const handleIncrement = () => {
+            // it will take most recent value of state and update it
+            setCnt(cnt=>cnt + 1);
+            setCnt(cnt=>cnt + 1);
+            setCnt(cnt=>cnt + 1);
         }
 
-        var handleCountStatus = ()=>{
+        const handleNameChange = () => {
+            setName(name === "Sachin" ? "Dhoni" : "Sachin")
+        }
+
+        var handleCountStatus = () => {
             console.log("5k lines code");
-            return cnt%2===0?"true":"false"
+            return cnt % 2 === 0 ? "true" : "false"
         }
 
-        var value = React.useMemo(handleCountStatus,[cnt])
+        var value = React.useMemo(handleCountStatus, [cnt])
+        // var value = handleCountStatus()
 
-        return(
+        return (
             <div>
                 <h2>count {cnt} is Even: {value}</h2>
                 <button onClick={handleIncrement}>increment</button>
@@ -35,10 +47,10 @@
                 <button onClick={handleNameChange}>chnage name</button>
             </div>
         )
-}
+    }
 
     const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(<App/>)
+    root.render(<App />)
 
- 
+
 </script>
